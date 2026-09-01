@@ -1,0 +1,30 @@
+.navWrapper {
+    display: block;
+  background-color: #cadefc;
+    text-align: center;
+}
+
+.link {
+    background-color: #cadefc;
+    text-decoration: none;
+    color: #defcf9;
+    margin: 10px;
+}
+
+.link:hover {
+    background-color: #c3bef0;
+    color: #cadefc;
+}
+
+.link2 {
+    background-color: #cadefc;
+    text-decoration: none;
+    color:#defcf9;
+    margin: 10px;
+}
+
+.link2:hover {
+    background-color: #c3bef0;
+    color:#cadefc
+}
+

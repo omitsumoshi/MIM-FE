@@ -1,0 +1,45 @@
+form {
+    margin-top: 40px;
+
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin-left: 25%;
+}
+
+button {
+    height: 30px;
+    width: 200px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+input {
+    background-color: #c3bef0;
+    border: 0px;
+    margin-bottom: 10px;
+}
+
+input:hover {
+    background-color: #cca8e9;
+    cursor: pointer;
+}
+
+button {
+    background-color: #c3bef0;
+    border: 0px;
+    color: #defcf9;
+}
+
+button:hover {
+    background-color: #cca8e9;
+    cursor: pointer;
+    
+}
+
+label {
+    color: #defcf9;
+}
