@@ -10,7 +10,7 @@ const CustomerRow = (props) => {
                 <th scope='row'>{customer.representative.contact}</th>
                 <th scope='row'>{customer.country}</th>
                 <th scope='row'>{customer.zone}</th>
-                <th scope='row'><a href="/customers/edit"><button>Edit Customer</button></a><button user_id={customer._id} onClick={props.delete}>Delete Customer</button></th>
+                <th scope='row'><a href={"/customers/edit/"+customer._id}><button>Edit Customer</button></a><button user_id={customer._id} onClick={props.delete}>Delete Customer</button></th>
             </tr>)
          
 }

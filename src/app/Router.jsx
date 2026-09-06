@@ -17,7 +17,7 @@ const Router = () => {
             <Route path="/incidents/create" element={<CreateIncident />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/create" element={<CreateCustomer />} />
-            <Route path="/customers/edit" element={<EditCustomer />} />
+            <Route path="/customers/edit/:id" element={<EditCustomer />} />
         </Routes>
     )
 }
