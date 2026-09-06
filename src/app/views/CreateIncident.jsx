@@ -1,6 +1,6 @@
 const CreateIncident = () => {
 
-    return(
+    return (
         <div></div>
     )
 }

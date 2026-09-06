@@ -5,18 +5,20 @@ import Incidents from "./views/Incidents";
 import CreateIncident from "./views/CreateIncident";
 import Customers from "./views/Customers";
 import CreateCustomer from "./views/CreateCustomer";
+import EditCustomer from "./views/EditCustomer";
 
 const Router = () => {
 
-    return(
+    return (
 
-    <Routes>
-      <Route path="/" element={<></>} />
-      <Route path="/incidents" element={<Incidents />} />
-       <Route path="/incidents/create" element={<CreateIncident />} />
-      <Route path="/customers" element={<Customers />} />
-      <Route path="/customers/create" element={<CreateCustomer />} />
-    </Routes>
+        <Routes>
+            <Route path="/" element={<></>} />
+            <Route path="/incidents" element={<Incidents />} />
+            <Route path="/incidents/create" element={<CreateIncident />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/customers/create" element={<CreateCustomer />} />
+            <Route path="/customers/edit" element={<EditCustomer />} />
+        </Routes>
     )
 }
 
