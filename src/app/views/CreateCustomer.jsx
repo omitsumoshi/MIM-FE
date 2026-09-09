@@ -5,7 +5,7 @@ import CustomerForm from '../../components/CustomerForm'
 
 const CreateCustomer = (props) => {
 
-    const saveCustomer = (customer) => {
+    const saveCustomer = async (customer) => {
         axios
             .post("http://localhost:8080/customer/create", customer)
             .then((response) => {
@@ -17,12 +17,11 @@ const CreateCustomer = (props) => {
             .finally(() => {
                 console.log("Request completed");
             });
-
     }
 
     return (
 
-       <CustomerForm action={saveCustomer}/ >
+       <CustomerForm action={saveCustomer} actionName="Create Customer"/ >
     )
 }
 

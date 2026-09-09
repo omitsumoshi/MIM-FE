@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const EditCustomer = (props) => {
     let { id } = useParams();
 
-    const [customer, setCustomer] = useState([])
+    const [customer, setCustomer] = useState(null)
 
     const editCustomer = (customer) => {
         axios
@@ -22,8 +22,8 @@ const EditCustomer = (props) => {
             });
 
     }
-    const listCustomer = () => {
-        axios.get("http://localhost:8080/customer/getOne?id=" + id)
+    const getCustomer = () => {
+        axios.get("http://localhost:8080/customer/" + id)
             .then((response) => {
                 setCustomer(response.data);
             })
@@ -35,13 +35,13 @@ const EditCustomer = (props) => {
     }
 
     useEffect(() => {
-        listCustomer()
+        getCustomer()
     }, [])
 
 
 
     return (
-        <CustomerForm action={editCustomer} customer={customer} />
+        <CustomerForm action={editCustomer} customer={customer} actionName="Update Customer" />
     )
 
 }

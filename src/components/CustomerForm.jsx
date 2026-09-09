@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 const CustomerForm = (props) => {
 
+    const [id, setId] = useState('')
     const [name, setName] = useState('')
     const [tier, setTier] = useState('')
     const [rName, setRName] = useState('')
@@ -11,6 +12,7 @@ const CustomerForm = (props) => {
     const [errors, setErrors] = useState([])
 
     const customer = {
+        id: id,
         name: name,
         tier: tier,
         representative: {
@@ -32,7 +34,7 @@ const CustomerForm = (props) => {
             errorsValidate.push("Enter the Customer's name")
         }
 
-        if (!tier || tier.trim() === '') {
+        if (!tier) {
             errorsValidate.push("Enter Customer's tier")
         }
 
@@ -40,7 +42,7 @@ const CustomerForm = (props) => {
             errorsValidate.push("Enter Customer's Representative name")
         }
 
-        if (!phone || phone.trim() === '') {
+        if (!phone) {
             errorsValidate.push("Enters Customer's representative number")
         }
 
@@ -73,8 +75,17 @@ const CustomerForm = (props) => {
         setErrors([])
     }
 
+    const dispatchAction = () => {
+        let variable = props.action(customer);
+        console.log(variable)
+        if (variable) {
+            resetForm();
+        }
+    }
+
     useEffect(() => {
         if (props.customer) {
+            setId(props.customer['_id'])
             setName(props.customer.name)
             setTier(props.customer.tier)
             setRName(props.customer.representative.name)
@@ -82,7 +93,7 @@ const CustomerForm = (props) => {
             setCountry(props.customer.location.country)
             setZone(props.customer.location.zone)
         }
-    },[])
+    },[props.customer])
 
 
     return (
@@ -107,7 +118,7 @@ const CustomerForm = (props) => {
                 <label htmlFor="zone">Country's zone</label>
                 <input type="text" id="zone" value={zone} onChange={(e) => { setZone(e.target.value) }} />
 
-                <button type='submit' onClick={() => { props.action((customer)) }}>Create Customer</button>
+                <button type='submit' onClick={dispatchAction}>{props.actionName}</button>
             </div>
         </form>
     )

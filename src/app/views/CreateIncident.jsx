@@ -1,7 +1,9 @@
+import IncidentForm from '../../components/IncidentForm'
+
 const CreateIncident = () => {
 
     return (
-        <div></div>
+        <IncidentForm />
     )
 }
 
