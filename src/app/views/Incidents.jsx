@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import axios from 'axios';
 import './Incidents.css'
 import EditCustomer from "./EditCustomer";
+import { NavLink } from "react-router";
 
 
 const Incidents = () => {
@@ -42,7 +43,7 @@ const Incidents = () => {
                 <div className="boxInfo">
                     Controller: {e.controller}
                 </div>
-                <button>Edit incident</button>
+                <NavLink to={"/incident/edit/"+e._id}>Edit Incident</NavLink>
             </div>
         )
     })
