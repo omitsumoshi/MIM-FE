@@ -1,5 +1,5 @@
 .tableWrapper {
-    display: flex;  
+    display: flex;
 }
 
 .col {
@@ -10,11 +10,11 @@
     margin: 5px;
 }
 
-.incidentBox{
+.incidentBox {
     border: 1px dotted black;
     max-width: 85%;
     margin: 10px;
-   
+
 }
 
 .boxInfo {
@@ -26,4 +26,3 @@
     border: 1px solid black;
     width: 100%;
 }
-

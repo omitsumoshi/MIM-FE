@@ -21,7 +21,7 @@ const CreateCustomer = (props) => {
 
     return (
 
-       <CustomerForm action={saveCustomer} actionName="Create Customer"/ >
+        <CustomerForm action={saveCustomer} actionName="Create Customer" />
     )
 }
 

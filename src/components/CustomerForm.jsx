@@ -93,7 +93,7 @@ const CustomerForm = (props) => {
             setCountry(props.customer.location.country)
             setZone(props.customer.location.zone)
         }
-    },[props.customer])
+    }, [props.customer])
 
 
     return (

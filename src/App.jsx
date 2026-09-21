@@ -11,9 +11,9 @@ function App() {
 
   return (
     <>
-    <NavBar />
-     <Router />
-     
+      <NavBar />
+      <Router />
+
     </>
   )
 }

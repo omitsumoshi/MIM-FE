@@ -5,9 +5,9 @@ const CreateIncident = () => {
 
 
     const createIncident = (incident) => {
-    axios
-    .post("http://localhost:8080/incident/create", incident)
-     .then((response) => {
+        axios
+            .post("http://localhost:8080/incident/create", incident)
+            .then((response) => {
                 console.log(response.data);
             })
             .catch((error) => {
@@ -17,8 +17,6 @@ const CreateIncident = () => {
                 console.log("Request completed");
             });
     }
- 
-
 
     return (
         <IncidentForm action={createIncident} actionName="Create incident" />

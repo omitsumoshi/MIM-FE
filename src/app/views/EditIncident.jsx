@@ -1,16 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import IncidentForm from "../../components/IncidentForm";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 
 const EditIncident = () => {
 
-     let { id } = useParams();
+    let { id } = useParams();
 
     const [incident, setIncident] = useState(null)
 
-     const getIncident = () => {
-        axios.get("http://localhost:8080/incident/" + id)
+    const navigate = useNavigate();
+
+    const getIncident = () => {
+        return axios
+            .get("http://localhost:8080/incident/" + id)
             .then((response) => {
                 setIncident(response.data);
             })
@@ -23,23 +26,31 @@ const EditIncident = () => {
 
     const editIncident = (incident) => {
         axios
-            .patch("http://localhost:8080/incident/update", incident)
+            .patch("http://localhost:8080/incident/update/" + id, incident)
             .then((response) => {
-                console.log(response.data);
+                console.log("Updated incident", response.data);
+                navigate("/incidents");
+                return true
             })
             .catch((error) => {
-                console.error(error);
+                console.error("Update failed", error);
+                return false
             })
             .finally(() => {
                 console.log("Request completed");
-            });}
-  useEffect(() => {
+            });
+    }
+    useEffect(() => {
         getIncident()
     }, [])
 
 
-    return(
-        <IncidentForm action={editIncident} incident={incident} actionName="Edit incident"/>
+    return (
+        <IncidentForm
+            action={editIncident}
+            incident={incident}
+            actionName="Edit incident"
+            showStatus={true} />
     )
 }
 
