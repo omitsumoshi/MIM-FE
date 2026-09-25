@@ -9,9 +9,9 @@ const CustomerRow = (props) => {
         <th scope='row'>{customer.tier}</th>
         <th scope='row'>{customer.representative.name}</th>
         <th scope='row'>{customer.representative.contact}</th>
-        <th scope='row'>{customer.country}</th>
-        <th scope='row'>{customer.zone}</th>
-        <th scope='row'><NavLink to={"/customers/edit/" + customer._id}>Edit Customer</NavLink><button user_id={customer._id} onClick={props.delete}>Delete Customer</button></th>
+        <th scope='row'>{customer.location.country}</th>
+        <th scope='row'>{customer.location.zone}</th>
+        <th scope='row'><NavLink className="btn" to={"/customers/edit/" + customer._id}>Edit Customer</NavLink><button user_id={customer._id} onClick={props.delete}>Delete Customer</button></th>
     </tr>)
 
 }

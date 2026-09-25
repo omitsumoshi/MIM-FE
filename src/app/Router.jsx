@@ -7,6 +7,7 @@ import Customers from "./views/Customers";
 import CreateCustomer from "./views/CreateCustomer";
 import EditCustomer from "./views/EditCustomer";
 import EditIncident from "./views/EditIncident";
+import Incident from "./views/Incident";
 
 const Router = () => {
 
@@ -17,6 +18,7 @@ const Router = () => {
             <Route path="/incidents" element={<Incidents />} />
             <Route path="/incidents/create" element={<CreateIncident />} />
             <Route path="/incident/edit/:id" element={<EditIncident />} />
+            <Route path="/incident/:id" element={<Incident />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/create" element={<CreateCustomer />} />
             <Route path="/customers/edit/:id" element={<EditCustomer />} />

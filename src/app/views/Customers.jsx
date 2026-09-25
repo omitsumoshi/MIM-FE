@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './Customers.css'
 import axios from "axios"
 import CustomerRow from '../../components/CustomerRow'
+import './Customers.css'
 
 const Customers = (props) => {
 
@@ -44,23 +45,26 @@ const Customers = (props) => {
     })
 
     return (
-        <table>
-            <caption>Customers list</caption>
-            <thead>
-                <tr>
-                    <th scope='col'>Customer</th>
-                    <th scope='col'>Tier</th>
-                    <th scope='col'>Representative</th>
-                    <th scope='col'>Representative's contact</th>
-                    <th scope='col'>Country</th>
-                    <th scope='col'>zone</th>
-                </tr>
-            </thead>
+        <div className='tableWrapper'>
+            <table>
+                <caption className='caption'>Customers list</caption>
+                <thead>
+                    <tr>
+                        <th scope='col'><p>Customer</p></th>
+                        <th scope='col'><p>Tier</p></th>
+                        <th scope='col'><p>Representative</p></th>
+                        <th scope='col'><p>Representative's contact</p></th>
+                        <th scope='col'><p>Country</p></th>
+                        <th scope='col'><p>Zone</p></th>
+                        <th scope='col'><p>Action</p></th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                {listCustomer}
-            </tbody>
-        </table>
+                <tbody>
+                    {listCustomer}
+                </tbody>
+            </table>
+        </div>
     )
 }
 

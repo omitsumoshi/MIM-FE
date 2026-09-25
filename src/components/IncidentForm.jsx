@@ -28,12 +28,12 @@ const IncidentForm = (props) => {
 
   const dispatchAction = async (e) => {
     e.preventDefault()
-      const success = await props.action(incident);
+    const success = await props.action(incident);
 
     if (success) {
-        resetForm();
+      resetForm();
     }
-};
+  };
 
   const resetForm = () => {
     setServices("");

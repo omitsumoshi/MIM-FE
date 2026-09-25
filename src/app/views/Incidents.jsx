@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Incidents.css";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router"
+import openImg from '../../icons/open.gif'
+import assignImg from '../../icons/assigned.gif'
+import pendingImg from '../../icons/pending.gif'
+import doneImg from '../../icons/done.gif'
+import customer1 from '../../icons/customer1.svg'
 
 const Incidents = () => {
     const [incidents, setIncidents] = useState([]);
@@ -18,6 +23,7 @@ const Incidents = () => {
             });
     };
 
+
     const listCustomers = () => {
         axios
             .get("http://localhost:8080/customer")
@@ -29,20 +35,21 @@ const Incidents = () => {
             });
     };
 
-    const deleteIncident = (id) => {
-        if (window.confirm("Delete the Incident?")) {
-            axios
-                .delete(
-                    "http://localhost:8080/incident/delete?id=" + id
-                )
-                .then(() => {
-                    listIncidents();
-                })
-                .catch((err) => {
-                    console.error(err);
-                });
-        }
-    };
+    const editIncident = (id, status) => {
+        const statusPayload = { "status": status };
+        axios
+            .patch("http://localhost:8080/incident/update/" + id, statusPayload)
+            .then((response) => {
+                console.log("Updated incident", response.data);
+            })
+            .catch((error) => {
+                console.error("Update failed", error);
+                return false
+            })
+            .finally(() => {
+                listIncidents();
+            });
+    }
 
     const renderIncidents = (status) => {
         return incidents
@@ -58,16 +65,15 @@ const Incidents = () => {
                         className="incidentBox"
                         key={incident._id}
                     >
-                        <div className="boxInfo">
-                            Customer: {customer?.name}
+                        <div className="boxInfoCustomer">
+                            <div className="boxInfoName">
+                                <img src={customer1} alt="customer" />{customer?.name}
+                            </div>
+
                         </div>
 
                         <div className="boxInfo">
-                            Country: {incident.country}
-                        </div>
-
-                        <div className="boxInfo">
-                            Zone: {incident.zone}
+                            Country: {incident.country}, {incident.zone}
                         </div>
 
                         <div className="boxInfo">
@@ -83,23 +89,42 @@ const Incidents = () => {
                         </div>
 
                         <div className="boxInfo">
-                            Status: {incident.status}
+                            <select name="status" id="status" value={incident.status} onChange={(e) => editIncident(incident._id, e.target.value)}>
+                                <option value="open">Open</option>
+                                <option value="assigned">Assigned</option>
+                                <option value="pending">Pending</option>
+                                <option value="closed">Closed</option>
+                            </select>
+                        </div>
+                        <div className="boxIncidentNav">
+                            <NavLink className="btn" to={"/incident/" + incident._id}>View</NavLink>
+                            <div className="boxInfoTier">
+                                T {customer?.tier}
+                            </div>
                         </div>
 
-                        <NavLink
-                            to={"/incident/edit/" + incident._id}
-                        >
-                            Edit Incident
-                        </NavLink>
 
-                        <button
-                            className="btn"
-                            onClick={() =>
-                                deleteIncident(incident._id)
-                            }
-                        >
-                            Delete incident
-                        </button>
+
+                        {/* <div className="buttonWrapper">
+                            <NavLink
+                                to={"/incident/edit/" + incident._id}
+                            >
+                                Edit
+                            </NavLink>
+
+                            <button
+                                className="btn"
+                                onClick={() =>
+                                    deleteIncident(incident._id)
+                                }
+                            >
+                                Delete
+                            </button>
+                              <div className="boxInfoTier">
+                                T {customer?.tier}
+                            </div>
+
+                        </div> */}
                     </div>
                 );
             });
@@ -113,23 +138,23 @@ const Incidents = () => {
     return (
         <div className="tableWrapper">
 
-            <div className="col">
-                <div className="statusBox">Open</div>
+            <div className="col open">
+                <div className="statusBox statusOpen"><img src={openImg} alt="open" /><p>Open</p></div>
                 {renderIncidents("open")}
             </div>
 
-            <div className="col">
-                <div className="statusBox">Assigned</div>
+            <div className="col assigned">
+                <div className="statusBox statusAssigned"><img src={assignImg} alt="assign" /><p>Assigned</p></div>
                 {renderIncidents("assigned")}
             </div>
 
-            <div className="col">
-                <div className="statusBox">Pending</div>
+            <div className="col pending">
+                <div className="statusBox statusPending"><img src={pendingImg} alt="pending" /><p>Pending</p></div>
                 {renderIncidents("pending")}
             </div>
 
-            <div className="col">
-                <div className="statusBox">Closed</div>
+            <div className="col closed">
+                <div className="statusBox statusClosed"><img src={doneImg} alt="done" /><p>Closed</p></div>
                 {renderIncidents("closed")}
             </div>
 

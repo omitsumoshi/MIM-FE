@@ -1,0 +1,25 @@
+.tableWrapper {
+    border: 1px solid #d7c9c9;
+    box-shadow: 2px 5px 10px #888888;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.tableWrapper caption {
+    font-weight: 700;
+    font-style: normal;
+    margin-top: 10px;
+}
+
+.tableWrapper p {
+    font-weight: 500;
+    font-style: normal;
+}
+
+.tableWrapper th {
+    font-weight: 400;
+    font-style: normal;
+    border: 1px solid #d7c9c9;
+}
