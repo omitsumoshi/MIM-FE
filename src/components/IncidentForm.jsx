@@ -10,6 +10,8 @@ const IncidentForm = (props) => {
   const [controller, setController] = useState('')
   const [showStatus, SetShowStatus] = useState(false)
   const [status, setStatus] = useState("open")
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
 
 
   const incident = {
@@ -19,6 +21,8 @@ const IncidentForm = (props) => {
     zone: selectedCustomer?.location?.zone,
     representative: selectedCustomer?.representative?.name,
     phone: selectedCustomer?.representative?.contact,
+    title: title,
+    description: description,
     services: services,
     teams: teams,
     controller: controller,
@@ -68,6 +72,8 @@ const IncidentForm = (props) => {
       setTeams(props.incident.teams)
       setController(props.incident.controller)
       setStatus(props.incident.status || "open");
+      setTitle(props.incident.title)
+      setDescription(props.incident.description)
 
     }
   }, [props.incident]);
@@ -105,6 +111,13 @@ const IncidentForm = (props) => {
 
         <label htmlFor="rPhone">Representatives's phone number</label>
         <input type="text" id="rName" value={selectedCustomer?.representative?.contact} />
+
+        <label htmlFor="title">Title</label>
+        <input type="text" id="title" value={title} onChange={(e) => { setTitle(e.target.value) }} />
+
+        <label htmlFor="description">Issue description</label>
+        <textarea type="text" id="description" value={description} onChange={(e) => { setDescription(e.target.value) }} />
+
 
         <label htmlFor="services">Services</label>
         <input type="text" id="services" value={services} onChange={(e) => { setServices(e.target.value) }} />

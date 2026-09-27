@@ -1,0 +1,30 @@
+.boxInfoSlider {
+    width: 100%;
+    overflow: hidden;
+    margin-left: 2px;
+}
+
+ .boxInfoSlider p {
+    animation: slide-right linear 5s infinite;
+    text-wrap-mode: nowrap;
+    white-space: nowrap;
+  }
+
+  @keyframes slide-left {
+    from {
+      margin-left: 100%;
+    }
+  
+    to {
+      margin-left: 0%;
+    }
+  }
+
+ @keyframes slide-right {
+    from {
+        transform:translateX(-50%)
+    }
+    to {
+      transform:translateX(0);
+    }
+  } 

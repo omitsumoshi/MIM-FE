@@ -77,6 +77,16 @@ const Incident = () => {
                         Country: {incident.country}, {incident.zone}
                     </p>
                 </div>
+                <div className="displayIncidentTitle">
+                    <p>
+                        IN title: {incident.title}
+                    </p>
+                </div>
+                <div className="displayIncidentDescription">
+                    <p>
+                        Issue description: {incident.description}
+                    </p>
+                </div>
                 <div className="displayIncidentServices">
                     <p>
                         Services: {incident.services}
@@ -105,6 +115,15 @@ const Incident = () => {
                 >
                     Edit
                 </NavLink>
+
+                <div className="buttonWrapper">
+                <NavLink
+                    className="btn"
+                    to={"/incidents"}
+                >
+                    Return
+                </NavLink>
+                </div>
 
                 <button
                     className="btn"

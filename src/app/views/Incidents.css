@@ -19,6 +19,20 @@
     margin: 10px;
     background: #f6f5f5;
     border-radius: 10px;
+    cursor: grab;
+}
+
+.incidentBox:active {
+    cursor: grabbing;
+}
+
+.isDragging {
+    opacity: 0.4;
+}
+
+.draggedOver {
+    background-color: #eff6ff;
+    border: 1px dashed #2563eb;
 }
 
 .boxInfo {
