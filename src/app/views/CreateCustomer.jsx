@@ -10,6 +10,7 @@ const CreateCustomer = (props) => {
             .post("http://localhost:8080/customer/create", customer)
             .then((response) => {
                 console.log(response.data);
+                navigate("/customers");
             })
             .catch((error) => {
                 console.error(error);

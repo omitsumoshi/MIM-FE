@@ -53,9 +53,12 @@ const Incidents = () => {
             });
     }
 
-    useEffect(() => {
+    useEffect(()=>{
         listIncidents();
         listCustomers();
+    },[])
+
+    useEffect(() => {
         return monitorForElements({
 
             onDrop({ source, location }) {

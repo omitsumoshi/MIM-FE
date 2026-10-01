@@ -1,30 +1,33 @@
-.boxInfoSlider {
-    width: 100%;
-    overflow: hidden;
-    margin-left: 2px;
+.boxDisplay1 {
+  display: flex;
+  flex-grow: 3;
+  flex-direction: column;
 }
 
- .boxInfoSlider p {
-    animation: slide-right linear 5s infinite;
-    text-wrap-mode: nowrap;
-    white-space: nowrap;
-  }
+.boxInfoCard1 {
+  display: flex;
+ 
+ 
+}
 
-  @keyframes slide-left {
-    from {
-      margin-left: 100%;
-    }
+.boxDisplay2 {
+  border-top: 1px solid grey;
+  display: flex;
+  max-height: 40%;
+  flex-grow: 1;
+  background-color: #ececec;
+  border-radius: 0 0 10px 10px;
   
-    to {
-      margin-left: 0%;
-    }
-  }
+}
 
- @keyframes slide-right {
-    from {
-        transform:translateX(-50%)
-    }
-    to {
-      transform:translateX(0);
-    }
-  } 
+.boxInfoCard {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 5px;
+  align-items: center;
+  align-content: center;
+padding: 3px;
+
+}
+
+

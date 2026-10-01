@@ -16,8 +16,8 @@ const NavBar = () => {
                 <p>Incident tracker</p>
             </div>
             <div className="linkWrapper">
-                <img src={dashboardImg} alt="incidents" />
-                <NavLink to="/" className="link">Dashboards</NavLink>
+                <img src={dashboardImg} alt="dashboards" />
+                <NavLink to="/dashboards" className="link">Dashboards</NavLink>
             </div>
             <div className="linkWrapper">
                 <img src={incidentImg} alt="incidents" />

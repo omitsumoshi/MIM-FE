@@ -40,46 +40,29 @@ const IncidentCard = ({ incident, customer }) => {
             className={`incidentBox ${isDragging ? "isDragging" : ""}`}
             key={incident._id}
         >
-            <div className="boxInfoSlider">
-                <p>{incident.title}</p>
-            </div>
+            <div className="boxDisplay1">
 
-            <div className="boxInfoCustomer">
-                <div className="boxInfoName">
-                    <img src={customer1} alt="customer" />{customer?.name}
+                <div className="boxInfoCard1">
+                    {/* {incident.customer} {incident.customer.representative} */}
+                </div>
+                <div className="boxInfoCard1">
+                    <p>{incident.title}</p>
+                </div>
+            </div>
+            <div className="boxDisplay2">
+                <div className="boxInfoCard">
+                    {/* <p>Tier {customer.tier}</p> */}
                 </div>
 
-            </div>
-
-            <div className="boxInfo">
-                Country: {incident.country}, {incident.zone}
-            </div>
-
-            <div className="boxInfo">
-                Services: {incident.services}
-            </div>
-
-            <div className="boxInfo">
-                Teams: {incident.teams}
-            </div>
-
-            <div className="boxInfo">
-                Controller: {incident.controller}
-            </div>
-
-            <div className="boxInfo">
-                <select name="status" id="status" className="statusSelect" value={incident.status} onChange={(e) => editIncident(incident._id, e.target.value)}>
-                    <option value="open">Open</option>
-                    <option value="assigned">Assigned</option>
-                    <option value="pending">Pending</option>
-                    <option value="closed">Closed</option>
-                </select>
-            </div>
-            <div className="boxIncidentNav">
-                <NavLink className="btn" to={"/incident/" + incident._id}>View</NavLink>
-                <div className="boxInfoTier">
-                    T {customer?.tier}
+                <div className="boxInfoCard">
+                    <div className="boxInfoCard">
+                        <p>{incident.teams}</p>
+                    </div>
+                    <div className="boxInfoCard">
+                        <NavLink className="btn" to={"/incident/" + incident._id}>View</NavLink>
+                    </div>
                 </div>
+
             </div>
         </div>
     )

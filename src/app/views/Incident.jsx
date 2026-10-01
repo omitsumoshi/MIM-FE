@@ -57,7 +57,6 @@ const Incident = () => {
     if (!incident) {
         return <p>Loading incident...</p>;
     }
-    console.log(incident)
 
     return (
         <div className="displayWrapper">
