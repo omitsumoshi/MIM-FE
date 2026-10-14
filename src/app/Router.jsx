@@ -9,6 +9,11 @@ import EditCustomer from "./views/EditCustomer";
 import EditIncident from "./views/EditIncident";
 import Incident from "./views/Incident";
 import Dashboards from "./views/Dashboards";
+import Teams from "./views/Teams";
+import CreateTeams from "./views/CreateTeams";
+import EditTeams from "./views/EditTeams";
+import LoginForm from "../components/LoginForm";
+import LoginForm2 from "../components/LoginForm2";
 
 const Router = () => {
 
@@ -24,6 +29,11 @@ const Router = () => {
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/create" element={<CreateCustomer />} />
             <Route path="/customers/edit/:id" element={<EditCustomer />} />
+            <Route path="/teams" element={<Teams />} />
+            <Route path="/teams/create" element={<CreateTeams />} />
+            <Route path="/teams/edit/:id" element={<EditTeams />} />
+             <Route path="/signup" element={<LoginForm />} />
+              <Route path="/login" element={<LoginForm2 />} />
         </Routes>
     )
 }

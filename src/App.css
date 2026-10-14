@@ -1,4 +1,20 @@
 .layoutWrapper {
   display: flex;
   max-width: 100%;
+  border: 1px solid white;
 }
+
+
+.navWrapperOuter {
+    display: flex;
+    flex-direction: column;
+    max-width: 15%;
+    background: white;
+    border: 1px solid white;
+    border-radius: 0.5%;
+    flex-grow: 1;
+}
+
+
+
+

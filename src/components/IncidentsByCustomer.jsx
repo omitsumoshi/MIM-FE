@@ -53,6 +53,8 @@ const IncidentsbyCustomer = () => {
             .get("http://localhost:8080/dashboard/incidents-by-customer")
             .then((response) => {
                 let labels = response.data.map(id => { return id._id })
+                console.log(response.data)
+                // Tutaj zmienilam wlasnie z id na name
                 let dataArray = response.data.map(data => { return data.incidentCount })
                 const data = {
                     labels,

@@ -43,7 +43,8 @@ const IncidentCard = ({ incident, customer }) => {
             <div className="boxDisplay1">
 
                 <div className="boxInfoCard1">
-                    {/* {incident.customer} {incident.customer.representative} */}
+                    {/* {customer.name}  */}
+                    {/* {incident.customer.representative} */}
                 </div>
                 <div className="boxInfoCard1">
                     <p>{incident.title}</p>
