@@ -18,6 +18,10 @@ const NavBar = () => {
                 <img src={trackerImg} alt="" />
                 <p>Incident tracker</p>
             </div>
+             <div className="linkWrapper">
+                <img src={LoginImg} alt="userProfile" />
+                <NavLink to="/myprofile/" className="link">My profile</NavLink>
+            </div>
             <div className="linkWrapper">
                 <img src={dashboardImg} alt="dashboards" />
                 <NavLink to="/dashboards" className="link">Dashboards</NavLink>
@@ -50,6 +54,7 @@ const NavBar = () => {
                 <img src={LoginImg} alt="login" />
                 <NavLink to="/signup/" className="link">Sign up</NavLink>
             </div>
+           
         </div>
         </div>
 

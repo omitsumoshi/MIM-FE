@@ -10,6 +10,9 @@ import { NavLink } from "react-router"
 
 function App() {
 
+  const [user, setUser] = useState(localStorage.getItem('userToken') )
+
+  axios.defaults.headers.common['Authorization'] = "Bearer " + (user ? user : "")
 
   return (
     <>

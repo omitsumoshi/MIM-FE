@@ -12,6 +12,7 @@ import Dashboards from "./views/Dashboards";
 import Teams from "./views/Teams";
 import CreateTeams from "./views/CreateTeams";
 import EditTeams from "./views/EditTeams";
+import UserProfile from "./views/UserProfile";
 import LoginForm from "../components/LoginForm";
 import LoginForm2 from "../components/LoginForm2";
 
@@ -34,6 +35,7 @@ const Router = () => {
             <Route path="/teams/edit/:id" element={<EditTeams />} />
              <Route path="/signup" element={<LoginForm />} />
               <Route path="/login" element={<LoginForm2 />} />
+               <Route path="/myprofile" element={<UserProfile />} />
         </Routes>
     )
 }

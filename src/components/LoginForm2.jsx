@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./IncidentForm.css";
 import axios from "axios";
-import { Navigate, NavLink } from "react-router";
+import { useNavigate, NavLink } from "react-router";
 
 
 const LoginForm2 = () => {
@@ -10,41 +10,43 @@ const LoginForm2 = () => {
     const [password, setPassword] = useState("")
     const [userToken, setUserToken] = useState("")
 
+    const navigate = useNavigate()
+
     const user = {
         email: email,
         password: password
     }
 
-const loginUser = (e) => {
-    e.preventDefault()
-    axios
-    .post("http://localhost:8080/user/login",user)
-    .then((res)=>{
-        setUserToken(res.data.jwt)
-        localStorage.setItem('userToken', res.data.jwt )
-    })
-    .catch((err)=>{
-        console.error(err)
-    })
-}
+    const loginUser = (e) => {
+        e.preventDefault()
+        axios
+            .post("http://localhost:8080/login", user)
+            .then((res) => {
+                setUserToken(res.data.jwt)
+                localStorage.setItem('userToken', res.data.jwt)
+                navigate('/myprofile')
+            })
+            .catch((err) => {
+                console.error(err)
+            })
+            
+    }
 
-
-
-    return(
+    return (
         <div className="">
-        <form onSubmit={loginUser}>
-             <div className="formWrapper">
-            <label htmlFor="userName">User email</label>
-            <input type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+            <form onSubmit={loginUser}>
+                <div className="formWrapper">
+                    <label htmlFor="userName">User email</label>
+                    <input type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
 
-            <label htmlFor="password">Password</label>
-            <input type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
 
-            <button className="btn">Login</button>
-            </div>
+                    <button className="btn">Login</button>
+                </div>
 
-        </form>
-        <p>Don't have an account? </p>  <NavLink to="/signup" className="link">Signup</NavLink>
+            </form>
+            <p>Don't have an account? </p>  <NavLink to="/signup" className="link">Signup</NavLink>
         </div>
     )
 }
